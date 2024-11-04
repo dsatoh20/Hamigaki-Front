@@ -1,7 +1,7 @@
 const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? 'https://hamigaki-calender-d66c9cb2ddcf.herokuapp.com'
+  ? process.env.API_BASE_URL
   : 'http://127.0.0.1:8000';
-
+  
 export default function ClickDone(id, title, status, duration, completed) { // Doneボタンに対応
     let tempCompleted = completed;
     if (completed === true) { // 達成済みの場合、再開するか確認する

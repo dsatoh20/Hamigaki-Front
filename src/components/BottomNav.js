@@ -12,9 +12,8 @@ import ViewTimelineIcon from '@mui/icons-material/ViewTimeline';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useUser } from '../AuthWrapper';
 
-const url = require('../ApiRoot.json');
 const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? url.API_ROOT
+  ? process.env.API_BASE_URL
   : 'http://127.0.0.1:8000';
 
 export default function SimpleBottomNavigation() {

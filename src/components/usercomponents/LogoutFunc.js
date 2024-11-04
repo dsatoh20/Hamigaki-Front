@@ -1,8 +1,7 @@
 import { getCsrfToken } from "./CsrfTokenFunc";
 
-const url = require('../../ApiRoot.json');
 const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? url.API_ROOT
+  ? process.env.API_BASE_URL
   : 'http://127.0.0.1:8000';
 
 // ログアウト関数
