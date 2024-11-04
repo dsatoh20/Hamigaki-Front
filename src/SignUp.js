@@ -5,11 +5,8 @@ import { Button, TextField, Stack} from '@mui/material';
 const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_BASE_URL
   : 'http://127.0.0.1:8000';
-console.log("REACT_APP_API BASE URL: ", apiBaseUrl);
-console.log("REACT_APP_API_BASE_URL: ", process.env.API_BASE_URL);
-console.log("NODE_ENV: ", process.env.NODE_ENV);
 
-function SignUp({setAuth}) {
+function SignUp({setHaveAccount}) {
     const [message, setMessage] = React.useState('');
     const [password, setPassword] = React.useState('');
 
@@ -31,8 +28,8 @@ function SignUp({setAuth}) {
             const result = await response.json();
 
             if (response.ok) {
-                setMessage('User created successfully!');
-                // setAuth(true);
+                setMessage('Successfully signed up!');
+                setHaveAccount(true);
             } else {
                 setMessage(result.error || 'Error creating user.');
             }

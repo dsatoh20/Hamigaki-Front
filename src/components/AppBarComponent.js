@@ -147,7 +147,7 @@ export default function MenuAppBar() {
           <Item>
             {haveAccount ? (
               <Login setAuth={setIsLoggedin} />
-            ): (<SignUp setAuth={setIsLoggedin} />)}
+            ): (<SignUp setHaveAccount={setHaveAccount} />)}
           </Item>
           <Item>
             <FormGroup>
