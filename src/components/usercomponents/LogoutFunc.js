@@ -7,7 +7,6 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 // ログアウト関数
 export const handleLogout = async (setIsLoggedin, fetchUserInfo) => {
     const csrfToken = await getCsrfToken();
-    console.log("csrfToken: ", csrfToken);
 
     try {
         const response = await fetch(`${apiBaseUrl}/api/v1/logout/`, {
