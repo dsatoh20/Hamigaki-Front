@@ -26,7 +26,7 @@ export default function SimpleBottomNavigation() {
     if (user) {
       setUserId(user.user?.id);
     } else {
-      setUserId(14);
+      setUserId(2); // testuserのid
     }
   }, [user]);
 
@@ -49,6 +49,7 @@ export default function SimpleBottomNavigation() {
 
   function SetNewCalender() {
     const token = localStorage.getItem('authToken');
+    console.log("token: ", token)
     const calcStart_date = (dayToAdd) => { // 0 or 1を入力
         const today = new Date();
         today.setDate(today.getDate() + dayToAdd);
