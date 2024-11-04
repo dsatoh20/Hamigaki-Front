@@ -5,7 +5,7 @@ import { Button, TextField, Stack} from '@mui/material';
 const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.API_BASE_URL
   : 'http://127.0.0.1:8000';
-console.log(apiBaseUrl);
+console.log("API BASE URL: ", apiBaseUrl);
 
 function SignUp({setAuth}) {
     const [message, setMessage] = React.useState('');
