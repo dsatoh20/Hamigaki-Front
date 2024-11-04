@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? 'https://hamigaki-calender-d66c9cb2ddcf.herokuapp.com'
+  ? process.env.REACT_APP_API_BASE_URL
   : 'http://127.0.0.1:8000';
-
+  
 const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {

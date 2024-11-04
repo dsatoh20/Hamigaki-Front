@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Button, TextField, Stack} from '@mui/material';
 
 const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? process.env.API_BASE_URL
+  ? process.env.REACT_APP_API_BASE_URL
   : 'http://127.0.0.1:8000';
-console.log("API BASE URL: ", apiBaseUrl);
-console.log("API_BASE_URL: ", process.env.API_BASE_URL);
+console.log("REACT_APP_API BASE URL: ", apiBaseUrl);
+console.log("REACT_APP_API_BASE_URL: ", process.env.API_BASE_URL);
 console.log("NODE_ENV: ", process.env.NODE_ENV);
 
 function SignUp({setAuth}) {

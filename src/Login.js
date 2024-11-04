@@ -3,7 +3,7 @@ import { Button, TextField, Stack } from '@mui/material';
 import { useUser } from './AuthWrapper';
 
 const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? process.env.API_BASE_URL
+  ? process.env.REACT_APP_API_BASE_URL
   : 'http://127.0.0.1:8000';
 
 function Login({ setAuth }) {
