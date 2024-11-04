@@ -20,10 +20,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "heroku-postbuild": "npm run build",
-    "serve": "serve -s build"
+    "postinstall": "gulp browserify",
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "eslintConfig": {
     "extends": [
