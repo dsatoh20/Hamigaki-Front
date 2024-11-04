@@ -12,6 +12,10 @@ import ViewTimelineIcon from '@mui/icons-material/ViewTimeline';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useUser } from '../AuthWrapper';
 
+const url = require('../ApiRoot.json');
+const apiBaseUrl = process.env.NODE_ENV === 'production'
+  ? url.API_ROOT
+  : 'http://127.0.0.1:8000';
 
 export default function SimpleBottomNavigation() {
   console.log('Buttom Navが動いてます')
@@ -60,7 +64,7 @@ export default function SimpleBottomNavigation() {
     };
 
 
-    fetch('http://127.0.0.1:8000/api/calenders/', {
+    fetch(`${apiBaseUrl}/api/calenders/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -2,8 +2,9 @@ import { useState } from "react";
 import { MenuItem, Button, Menu } from "@mui/material";
 import EventRepeatIcon from '@mui/icons-material/EventRepeat';
 
+const url = require('../ApiRoot.json');
 const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? 'https://hamigaki-calender-d66c9cb2ddcf.herokuapp.com'
+  ? url.API_ROOT
   : 'http://127.0.0.1:8000';
 
 export default function ClickExtend({ id, title, duration, btnColor }) {
