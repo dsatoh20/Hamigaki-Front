@@ -6,6 +6,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 
 // ログアウト関数
 export const handleLogout = async (setIsLoggedin, fetchUserInfo) => {
+    // const csrfToken = await getCsrfToken();
     const csrfToken = await getCsrfToken();
 
     try {
@@ -23,12 +24,15 @@ export const handleLogout = async (setIsLoggedin, fetchUserInfo) => {
             fetchUserInfo();
             setIsLoggedin(false);
             console.log("Logged out successfully");
+            alert("Successfully logged out!")
             
             // 必要に応じてログアウト後のリダイレクトや状態更新
         } else {
             console.error("Logout failed");
+            alert("failed to logout...")
         }
     } catch (error) {
         console.error("Error during logout:", error);
+        alert("unexpected error occured")
     }
 };

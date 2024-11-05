@@ -11,6 +11,7 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import ViewTimelineIcon from '@mui/icons-material/ViewTimeline';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useUser } from '../AuthWrapper';
+import { getCsrfToken } from './usercomponents/CsrfTokenFunc';
 
 const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_BASE_URL
@@ -26,7 +27,7 @@ export default function SimpleBottomNavigation() {
     if (user) {
       setUserId(user.user?.id);
     } else {
-      setUserId(2); // testuserのid
+      setUserId(3); // testuserのid
     }
   }, [user]);
 
@@ -49,6 +50,8 @@ export default function SimpleBottomNavigation() {
 
   function SetNewCalender() {
     const token = localStorage.getItem('authToken');
+    const csrfToken = getCsrfToken();
+    console.log("setnewcal csrftoken: ", document.cookie);
     const calcStart_date = (dayToAdd) => { // 0 or 1を入力
         const today = new Date();
         today.setDate(today.getDate() + dayToAdd);
@@ -68,7 +71,9 @@ export default function SimpleBottomNavigation() {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${token}`,
+            'X-CSRFToken': csrfToken,
         },
+        credentials: 'include',
         body: JSON.stringify(newCalenderData)
     })
     .then(response => {

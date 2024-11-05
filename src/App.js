@@ -15,7 +15,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 function App() {
   const [calenders, setCalenders] = useState([])
   const user = useUser();
-  const [userId, setUserId] = useState(2); // testuserのid
+  const [userId, setUserId] = useState(3); // testuserのid
 
   useEffect(() => {
     fetch(`${apiBaseUrl}/api/calenders/`)
@@ -28,7 +28,7 @@ function App() {
 
   const inProgressCalenders = calenders.filter(item => new Date(item.end_date) >= new Date() && item.completed === false && item.owner === userId);
   console.log("次のユーザーのカレンダーを表示中", user.user?.username, userId, inProgressCalenders)
-  
+  console.log("cookie", document.cookie);
 
 
   return (

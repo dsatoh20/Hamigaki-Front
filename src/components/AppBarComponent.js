@@ -44,7 +44,6 @@ export default function MenuAppBar() {
   const handleChange = (event) => {
     if (event.target.checked === false) { // とりあえずログアウトにチェックされたら、ログアウト
       handleLogout(setIsLoggedin, fetchUserInfo); // handleLogoutにsetIsLoggedinを渡す
-      alert('Successfully logged out.');
     } else if (user.user === null) { // ログアウトの時のみ実行
       alert('ユーザー情報入力よろしく');
     } else if (user.user !== null) {
