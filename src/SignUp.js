@@ -29,6 +29,7 @@ function SignUp({setHaveAccount}) {
 
             if (response.ok) {
                 setMessage('Successfully signed up!');
+                alert('Successfully signed up!')
                 setHaveAccount(true);
             } else {
                 setMessage(result.error || 'Error creating user.');

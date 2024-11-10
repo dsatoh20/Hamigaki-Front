@@ -4,6 +4,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
   
 export default function ClickDone(id, title, status, duration, completed) { // Doneボタンに対応
     let tempCompleted = completed;
+    const token = localStorage.getItem('authToken');
     if (completed === true) { // 達成済みの場合、再開するか確認する
       window.confirm(`「${title}」を再開しますか？`)
       ? tempCompleted = false: tempCompleted = true; 
@@ -19,7 +20,9 @@ export default function ClickDone(id, title, status, duration, completed) { // D
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Token ${token}`,
         },
+        credentials: "include",
         body: JSON.stringify({ completed: tempCompleted }),
       })
       .then(response => response.json())
@@ -28,7 +31,6 @@ export default function ClickDone(id, title, status, duration, completed) { // D
           console.log('Succeed', data);
           if (tempCompleted === true) {
             alert(`やったね！${title}を達成しました！(到達度：${Math.floor(status.filter(n => n === 1).length / duration * 100)}%)`);
-            window.location.assign(window.location.href);
           } else {
             console.log('Canceled')
           }

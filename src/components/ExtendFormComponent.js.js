@@ -7,6 +7,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
   : 'http://127.0.0.1:8000';
 
 export default function ClickExtend({ id, title, duration, btnColor }) {
+  const token = localStorage.getItem('authToken');
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -26,7 +27,9 @@ export default function ClickExtend({ id, title, duration, btnColor }) {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Token ${token}`,
         },
+        credentials: "include",
         body: JSON.stringify({ duration: Number(e.target.value + duration) }), // 初期値に選択値を加える
       })
       .then(response => response.json())

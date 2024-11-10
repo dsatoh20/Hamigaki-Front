@@ -16,6 +16,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 
 export default function ProgressSlide({id, status, setStatus, start_date}) {
   function handleClick(index) {
+    const token = localStorage.getItem('authToken');
     let tempArray = [...status];
     tempArray[index] === 0 ? tempArray[index] = 1 : tempArray[index] = 0;
     setStatus(tempArray);
@@ -23,7 +24,9 @@ export default function ProgressSlide({id, status, setStatus, start_date}) {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`
       },
+      credentials: 'include',
       body: JSON.stringify({ status: tempArray }),
     })
     .then(response => response.json())

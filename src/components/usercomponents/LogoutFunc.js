@@ -14,9 +14,7 @@ export const handleLogout = async (setIsLoggedin, fetchUserInfo) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken,  // CSRFトークンをヘッダーに追加
             },
-            credentials: 'include',  // セッション情報を含める
         });
 
         if (response.ok) {

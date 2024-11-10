@@ -20,7 +20,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 export default function SimpleBottomNavigation() {
   console.log('Buttom Navが動いてます')
   const user = useUser();
-  const [userId, setUserId] = React.useState(14);
+  const [userId, setUserId] = React.useState(3); // ハードコーディング
 
   // userの変更時に一度だけuserIdを更新
   React.useEffect(() => {
@@ -50,8 +50,6 @@ export default function SimpleBottomNavigation() {
 
   function SetNewCalender() {
     const token = localStorage.getItem('authToken');
-    const csrfToken = getCsrfToken();
-    console.log("setnewcal csrftoken: ", document.cookie);
     const calcStart_date = (dayToAdd) => { // 0 or 1を入力
         const today = new Date();
         today.setDate(today.getDate() + dayToAdd);
@@ -71,7 +69,6 @@ export default function SimpleBottomNavigation() {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Token ${token}`,
-            'X-CSRFToken': csrfToken,
         },
         credentials: 'include',
         body: JSON.stringify(newCalenderData)
