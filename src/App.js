@@ -15,7 +15,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 function App() {
   const [calenders, setCalenders] = useState([])
   const user = useUser();
-  const [userId, setUserId] = useState(3); // testuserのid
+  const [userId, setUserId] = useState(3); // testuserのid ハードコーディング
 
   useEffect(() => {
     fetch(`${apiBaseUrl}/api/calenders/`)
