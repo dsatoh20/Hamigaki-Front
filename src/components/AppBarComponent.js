@@ -28,29 +28,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function MenuAppBar() {
-  console.log('MenuBarが動いてます')
   const user = useUser();
+  console.log(user.user?.username, "がログイン中です")
   const { fetchUserInfo } = useUser();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [haveAccount, setHaveAccount] = React.useState(true); // アカウントを持っているか？デフォルトはTrue
   const [isLoggedin, setIsLoggedin] = React.useState(false);
   
   React.useEffect(() => {
-    if (user.user === null) {
-      setIsLoggedin(false);
-    };
-  }, [user])
-
-  const handleChange = (event) => {
-    if (event.target.checked === false) { // とりあえずログアウトにチェックされたら、ログアウト
-      handleLogout(setIsLoggedin, fetchUserInfo); // handleLogoutにsetIsLoggedinを渡す
-    } else if (user.user === null) { // ログアウトの時のみ実行
-      alert('ユーザー情報入力よろしく');
-    } else if (user.user !== null) {
-      setIsLoggedin(event.target.checked); // ログイン時のみ更新
-      console.log("ログイン中: ", user, user.id)
+    user.user ? setIsLoggedin(true) : setIsLoggedin(false);
+  }, [user]);
+  React.useEffect(() => {
+    if (isLoggedin) {
+      setAnchorEl(null);
     }
-  };
+  }, [isLoggedin]);
+  
+
 
   const handleHaveAccount = (event) => {
     setHaveAccount(event.target.checked);
@@ -66,18 +60,6 @@ export default function MenuAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={isLoggedin}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={isLoggedin ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
       <AppBar position="static" sx={{bgcolor: "primary.dark"}}>
         <Toolbar>
           <IconButton
@@ -121,12 +103,12 @@ export default function MenuAppBar() {
               >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={() => handleLogout(setIsLoggedin, fetchUserInfo)}>Logout</MenuItem>
               </Menu>
             </div>
           )}
         </Toolbar>
       </AppBar>
-      {console.log("ユーザーは", user.user, user.user === null)}
       {user.user === null && (
         <Stack 
           divider={<Divider orientation="vertical" />}

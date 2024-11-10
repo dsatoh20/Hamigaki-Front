@@ -11,7 +11,6 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import ViewTimelineIcon from '@mui/icons-material/ViewTimeline';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useUser } from '../AuthWrapper';
-import { getCsrfToken } from './usercomponents/CsrfTokenFunc';
 
 const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_BASE_URL

@@ -1,13 +1,9 @@
-import { getCsrfToken } from "./CsrfTokenFunc";
-
 const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_BASE_URL
   : 'http://127.0.0.1:8000';
 
 // ログアウト関数
 export const handleLogout = async (setIsLoggedin, fetchUserInfo) => {
-    // const csrfToken = await getCsrfToken();
-    const csrfToken = await getCsrfToken();
 
     try {
         const response = await fetch(`${apiBaseUrl}/api/v1/logout/`, {

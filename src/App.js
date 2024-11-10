@@ -23,13 +23,14 @@ function App() {
       .then(data => setCalenders(data));
     if (user.user !== null) {
       setUserId(user.user?.id);
+    } else {
+      setUserId(3); // ハードコーディング
     };
   }, [user]);
 
   const inProgressCalenders = calenders.filter(item => new Date(item.end_date) >= new Date() && item.completed === false && item.owner === userId);
   console.log("次のユーザーのカレンダーを表示中", user.user?.username, userId, inProgressCalenders)
-  console.log("cookie", document.cookie);
-
+  
 
   return (
     <div className="App">
