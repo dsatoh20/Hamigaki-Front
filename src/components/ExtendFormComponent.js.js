@@ -30,7 +30,10 @@ export default function ClickExtend({ id, title, duration, btnColor }) {
           'Authorization': `Token ${token}`,
         },
         credentials: "include",
-        body: JSON.stringify({ duration: Number(e.target.value + duration) }), // 初期値に選択値を加える
+        body: JSON.stringify({ 
+          duration: Number(e.target.value + duration),
+          completed: false,
+        }), // 初期値に選択値を加える
       })
       .then(response => response.json())
       .then(data => {
