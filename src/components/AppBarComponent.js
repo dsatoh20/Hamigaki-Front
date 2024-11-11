@@ -58,6 +58,13 @@ export default function MenuAppBar() {
     setAnchorEl(null);
   };
 
+  const handleContactForm = () => {
+    if (window.confirm('You are about to be redirected to an external site. Do you wish to proceed?')) {
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLSfWCQYAAbk7eGAg30dgcn3gY1tFrSamf1hZF69P9O2N2wjgGQ/viewform?usp=sf_link', "_blank", "noopener,noreferrer");
+    } else {
+      setAnchorEl(null);
+    };
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{bgcolor: "primary.dark"}}>
@@ -103,6 +110,7 @@ export default function MenuAppBar() {
               >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleContactForm}>Contact us</MenuItem>
                 <MenuItem onClick={() => handleLogout(setIsLoggedin, fetchUserInfo)}>Logout</MenuItem>
               </Menu>
             </div>
