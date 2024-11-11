@@ -17,7 +17,6 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
   : 'http://127.0.0.1:8000';
 
 export default function SimpleBottomNavigation() {
-  console.log('Buttom Navが動いてます')
   const user = useUser();
   const [userId, setUserId] = React.useState(3); // ハードコーディング
 

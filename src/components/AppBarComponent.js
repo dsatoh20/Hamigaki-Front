@@ -15,6 +15,7 @@ import Login from '../Login';
 import SignUp from '../SignUp';
 import { useUser } from '../AuthWrapper';
 import { handleLogout } from './usercomponents/LogoutFunc';
+import NestedModal from './ModalComponent';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -150,6 +151,9 @@ export default function MenuAppBar() {
                 }
                 label={haveAccount ? "Don't have an account?" : 'Already have an account?'}/>
             </FormGroup>
+          </Item>
+          <Item>
+            <NestedModal />
           </Item>
         </Stack>
       )}
