@@ -30,7 +30,7 @@ const CustomCard = ({id, title, purpose, start_date, duration, end_date, status,
         <ProgressSlide id={id} status={stat} setStatus={setStatus} start_date={start_date}/>
       </CardContent>
       <CardActions sx={{position: "relative", padding: 3}}>
-        <ClickExtend id={id} title={title} duration={duration} btnColor="primary.dark"/>
+        <ClickExtend id={id} title={title} duration={duration} btnColor="primary.dark" status={stat}/>
         <Button size="small" sx={{ color: "primary.dark", position: "absolute", right: "3vw", bottom: "20%"}} onClick={() => ClickDone(id, title, status, duration, completed)}>Done<EventAvaliableIcon sx={{marginLeft: 1}} /></Button>
       </CardActions>
     </React.Fragment>

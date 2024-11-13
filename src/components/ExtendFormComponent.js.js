@@ -6,7 +6,12 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_BASE_URL
   : 'http://127.0.0.1:8000';
 
-export default function ClickExtend({ id, title, duration, btnColor }) {
+  function addZeros(arr, n) { // 延長n日分のゼロをarrの末尾に追加
+    arr.push(...new Array(n).fill(0));
+    return arr;
+  }
+
+export default function ClickExtend({ id, title, duration, btnColor, status }) {
   const token = localStorage.getItem('authToken');
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -23,6 +28,9 @@ export default function ClickExtend({ id, title, duration, btnColor }) {
 
   const handleChange = (e) => {
     if (window.confirm('延長するけど大丈夫？')) {
+      let updatedStatus = status;
+      addZeros(updatedStatus, e.target.value);
+      console.log("updated: ", status.length, " --> ", updatedStatus.length)
       fetch(`${apiBaseUrl}/api/calenders/${id}/`, {
         method: 'PATCH',
         headers: {
@@ -33,6 +41,8 @@ export default function ClickExtend({ id, title, duration, btnColor }) {
         body: JSON.stringify({ 
           duration: Number(e.target.value + duration),
           completed: false,
+          status: updatedStatus,
+
         }), // 初期値に選択値を加える
       })
       .then(response => response.json())
