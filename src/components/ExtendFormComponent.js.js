@@ -28,7 +28,7 @@ export default function ClickExtend({ id, title, duration, btnColor, status }) {
 
   const handleChange = (e) => {
     if (window.confirm('延長するけど大丈夫？')) {
-      let updatedStatus = status;
+      let updatedStatus = [...status];
       addZeros(updatedStatus, e.target.value);
       console.log("updated: ", status.length, " --> ", updatedStatus.length)
       fetch(`${apiBaseUrl}/api/calenders/${id}/`, {
