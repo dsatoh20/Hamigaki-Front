@@ -18,7 +18,7 @@ function GetCompleted(checked) {
   
 
   useEffect(() => {
-    fetch(`${apiBaseUrl}/api/calenders/`, { cache: "no-store" })
+    fetch(`${apiBaseUrl}/api/calenders/`)
       .then(response => response.json())
       .then(data => setCalenders(data));
   }, []);

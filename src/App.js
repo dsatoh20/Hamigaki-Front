@@ -18,7 +18,7 @@ function App() {
   const [userId, setUserId] = useState(3); // testuserのid ハードコーディング
 
   useEffect(() => {
-    fetch(`${apiBaseUrl}/api/calenders/`, { cache: "no-store" })
+    fetch(`${apiBaseUrl}/api/calenders/`)
       .then(response => response.json())
       .then(data => setCalenders(data));
     if (user.user !== null) {
