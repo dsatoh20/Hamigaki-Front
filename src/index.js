@@ -10,29 +10,6 @@ import BottomNavigation from './components/BottomNav';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const apiBaseUrl = process.env.NODE_ENV === 'production'
-  ? process.env.REACT_APP_API_BASE_URL
-  : 'http://127.0.0.1:8000';
-
-document.addEventListener("visibilitychange", () => {
-  if (document.visibilityState === "visible") {
-      fetchData();  // 再開時にデータを更新
-  }
-});
-
-function fetchData() {
-  fetch(`${apiBaseUrl}/api/calenders`, { cache: "no-store" })  // キャッシュを無効化して最新データを取得
-      .then((response) => response.json())
-      .then((data) => {
-          // データをアプリに反映
-          console.log(data);  // 必要な更新処理を実行
-      })
-      .catch((error) => {
-          console.error("データの取得に失敗しました:", error);
-      });
-}
-
-
 
 root.render(
   <ThemeProvider theme={theme}>
