@@ -46,13 +46,13 @@ export default function BasicModal() {
           <img src={`${process.env.PUBLIC_URL}/demo/Top.png`} alt="top page" width="100%" text-align="center"/>
           <Typography variant='h6'>2. Set a calender</Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            画面下の+ボタンから、カレンダーを追加します。
+            画面下の+ボタンから、あなたの継続したいことを登録します。
           </Typography>
           <img src={`${process.env.PUBLIC_URL}/demo/Home.png`} alt="top page" width="100%" text-align="center"/>
           <img src={`${process.env.PUBLIC_URL}/demo/Set.png`} alt="top page" width="100%" text-align="center"/>
           <Typography variant='h6'>3. Check off today's item</Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            タスクを実行したら、今日のカレンダーをタップしましょう。カレンダーに色が付きます。<br />カレンダー上のバーで進捗を確認できますよ。
+            タスクを実行したら、今日のカレンダーをタップしましょう。カレンダーに色が付きます。<br />カレンダーの上にあるバーであなたの継続が一目瞭然！
           </Typography>
           <img src={`${process.env.PUBLIC_URL}/demo/Before.png`} alt="top page" width="100%" text-align="center" />
           <img src={`${process.env.PUBLIC_URL}/demo/After.png`} alt="top page" width="100%" text-align="center"/>
