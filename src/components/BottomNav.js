@@ -216,6 +216,7 @@ export default function SimpleBottomNavigation() {
                 case 2:
                   console.log('お知らせが届く予定');
                   // Notificationが選択されたときのアクション
+                  handleCheckStatus();
                   break;
                 default:
                   console.log('Unknown action');
@@ -225,7 +226,7 @@ export default function SimpleBottomNavigation() {
         >
             <BottomNavigationAction label="My Calenders" icon={<DateRangeIcon />} />
             <BottomNavigationAction label="Timeline" icon={<ViewTimelineIcon />} />
-            <BottomNavigationAction label="Notification" icon={<NotificationsIcon />} onClick={handleCheckStatus}/>
+            <BottomNavigationAction label="Notification" icon={<NotificationsIcon />} />
         </BottomNavigation>
         </Box>
     </Box>
