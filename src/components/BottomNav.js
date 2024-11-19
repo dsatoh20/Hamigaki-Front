@@ -11,6 +11,7 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import ViewTimelineIcon from '@mui/icons-material/ViewTimeline';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useUser } from '../AuthWrapper';
+import handleCheckStatus from './usercomponents/OneSignalStatus';
 
 const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_BASE_URL
@@ -224,7 +225,7 @@ export default function SimpleBottomNavigation() {
         >
             <BottomNavigationAction label="My Calenders" icon={<DateRangeIcon />} />
             <BottomNavigationAction label="Timeline" icon={<ViewTimelineIcon />} />
-            <BottomNavigationAction label="Notification" icon={<NotificationsIcon />} />
+            <BottomNavigationAction label="Notification" icon={<NotificationsIcon />} onClick={handleCheckStatus}/>
         </BottomNavigation>
         </Box>
     </Box>
