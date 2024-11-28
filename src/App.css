@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.BottomMenu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  margin-bottom: 20vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: scroll;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

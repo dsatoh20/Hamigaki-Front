@@ -92,7 +92,9 @@ export default function ProgressSlide({id, status, setStatus, start_date}) {
 
                     </Box>
                     
-                </Box><Box>{status.filter(n => n === 1).length} / {getTodayId(start_date) + 1}</Box>
+                </Box>
+                <Box>{Math.round(Number(getTodayId(start_date) + 1)/Number(status.filter(n => n === 1).length) * 10) / 10}日あたり1回のペース</Box>
+
       </Typography>
       <Box sx={{}}>
         <Swiper

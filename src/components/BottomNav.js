@@ -12,6 +12,7 @@ import ViewTimelineIcon from '@mui/icons-material/ViewTimeline';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useUser } from '../AuthWrapper';
 import handleCheckStatus from './usercomponents/OneSignalStatus';
+import TimelineApp from './TimelineComponent';
 
 const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_BASE_URL
@@ -20,6 +21,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 export default function SimpleBottomNavigation() {
   const user = useUser();
   const [userId, setUserId] = React.useState(3); // ハードコーディング
+  const [showTimeline, setShowTimeline] = React.useState(false);
 
   // userの変更時に一度だけuserIdを更新
   React.useEffect(() => {
@@ -105,6 +107,7 @@ export default function SimpleBottomNavigation() {
             position: "absolute"
         
     }}>
+      {showTimeline && <TimelineApp />}
         
         <Box 
             component="footer"
@@ -208,15 +211,18 @@ export default function SimpleBottomNavigation() {
                 case 0:
                   console.log('Homeページ');
                   // My Calendarsが選択されたときのアクション
+                  setShowTimeline(false);
                   break;
                 case 1:
                   console.log('友だちの挑戦から刺激を受けられる予定');
                   // Timelineが選択されたときのアクション
+                  setShowTimeline(true);
                   break;
                 case 2:
                   console.log('お知らせが届く予定');
                   // Notificationが選択されたときのアクション
-                  handleCheckStatus();
+                  //handleCheckStatus();
+                  setShowTimeline(false);
                   break;
                 default:
                   console.log('Unknown action');
