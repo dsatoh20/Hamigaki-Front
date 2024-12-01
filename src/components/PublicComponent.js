@@ -1,5 +1,5 @@
 import { Checkbox } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PublicIcon from '@mui/icons-material/Public';
 import PublicOffIcon from '@mui/icons-material/PublicOff';
 
@@ -15,8 +15,6 @@ export default function PublicBooleanField({id, publicStat}) {
     const [pub, setPub] = useState(publicStat);
     const handleCheck = (event) => {
         setPub(event.target.checked);
-    };
-    useEffect(() => {
         fetch(`${apiBaseUrl}/api/calenders/${id}/`, {
             method: 'PATCH',
             headers: {
@@ -24,13 +22,13 @@ export default function PublicBooleanField({id, publicStat}) {
               'Authorization': `Token ${token}`,
             },
             credentials: "include",
-            body: JSON.stringify({ public: pub }),
+            body: JSON.stringify({ public: event.target.checked }),
           })
           .then(response => response.json())
           .then(data => {
             if (data) {
               console.log('Succeed', data);
-              pub ? alert('友だちと共有します'): alert('共有を停止します');
+              event.target.checked ? alert('友だちと共有します'): alert('共有を停止します');
               } else {
                 console.log('Canceled')
               }
@@ -38,7 +36,7 @@ export default function PublicBooleanField({id, publicStat}) {
           .catch(error => {
             console.error('Error:', error);
           });
-    }, [pub, id]);
+    };
 
 
     return (

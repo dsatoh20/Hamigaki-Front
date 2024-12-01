@@ -117,7 +117,7 @@ export default function TimelineApp() {
     };
   }, [user]);
 
-  const sharedCalenders = calenders.filter(item => item.completed === false && item.owner === userId && new Date(item.end_date) > new Date()); // 一旦自分のカレンダーだけ表示 --> 将来的には、相互フォローのユーザーのデータだけ表示
+  const sharedCalenders = calenders.filter(item => item.completed === false && item.owner === userId && new Date(item.end_date) > new Date() && item.public === true); // 一旦自分のカレンダーだけ表示 --> 将来的には、相互フォローのユーザーのデータだけ表示
   return (
     <div className="App BottomMenu">
       <Box height={'56px'} />
