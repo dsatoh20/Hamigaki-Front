@@ -1,6 +1,7 @@
 import {Box, Card, CardContent, Button, Typography, Container, Stack } from '@mui/material';
 import { Fragment, useState, useEffect } from 'react';
 import FeedBackIcon from '@mui/icons-material/Feedback';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useUser } from '../AuthWrapper';
 import '../App.css';
 
@@ -28,6 +29,18 @@ const CustomCard = ({id, title, purpose, start_date, duration, end_date, status,
         <Typography gutterBottom sx={{ color: "text.secondary", fontSize: 14 }}>
           {start_date} ~ {end_date} ({duration} days)
         </Typography>
+        <Box 
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: 1
+        }}>
+          <AccountCircleIcon />
+          <Typography sx={{marginLeft: 1}}>
+            ownerName
+          </Typography>
+        </Box>
         <Typography variant="h5" component="div" color="text.primary">
           {title}<Button color='primary.dark' sx={{minWidth: 2,}} onClick={handleClick}><FeedBackIcon fontSize='small' /></Button>
         </Typography>

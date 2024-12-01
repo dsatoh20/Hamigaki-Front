@@ -11,8 +11,8 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import ViewTimelineIcon from '@mui/icons-material/ViewTimeline';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useUser } from '../AuthWrapper';
-import handleCheckStatus from './usercomponents/OneSignalStatus';
 import TimelineApp from './TimelineComponent';
+import NotificationApp from './NotificationComponent';
 
 const apiBaseUrl = process.env.NODE_ENV === 'production'
   ? process.env.REACT_APP_API_BASE_URL
@@ -22,6 +22,7 @@ export default function SimpleBottomNavigation() {
   const user = useUser();
   const [userId, setUserId] = React.useState(3); // ハードコーディング
   const [showTimeline, setShowTimeline] = React.useState(false);
+  const [showNotiication, setShowNotification] = React.useState(false);
 
   // userの変更時に一度だけuserIdを更新
   React.useEffect(() => {
@@ -108,6 +109,7 @@ export default function SimpleBottomNavigation() {
         
     }}>
       {showTimeline && <TimelineApp />}
+      {showNotiication && <NotificationApp />}
         
         <Box 
             component="footer"
@@ -212,21 +214,23 @@ export default function SimpleBottomNavigation() {
                   console.log('Homeページ');
                   // My Calendarsが選択されたときのアクション
                   setShowTimeline(false);
+                  setShowNotification(false);
                   break;
                 case 1:
                   console.log('友だちの挑戦から刺激を受けられる予定');
                   // Timelineが選択されたときのアクション
+                  setShowNotification(false);
                   setShowTimeline(true);
                   break;
                 case 2:
                   console.log('お知らせが届く予定');
                   // Notificationが選択されたときのアクション
-                  //handleCheckStatus();
                   setShowTimeline(false);
+                  setShowNotification(true);
                   break;
                 default:
                   console.log('Unknown action');
-                }
+                };
             }}
             sx={{ bgcolor: 'primary.dark' }}    
         >
