@@ -8,9 +8,10 @@ import FeedBackIcon from '@mui/icons-material/Feedback';
 import EventAvaliableIcon from '@mui/icons-material/EventAvailable';
 import ClickDone from './ClickDoneFunc';
 import ClickExtend from './ExtendFormComponent.js';
+import PublicBooleanField from './PublicComponent.js';
 
 
-const CustomCard = ({id, title, purpose, start_date, duration, end_date, status, completed}) => {
+const CustomCard = ({id, title, purpose, start_date, duration, end_date, status, completed, publicStat}) => {
   const [stat, setStatus] = useState(status);
   
   function handleClick() {
@@ -20,6 +21,7 @@ const CustomCard = ({id, title, purpose, start_date, duration, end_date, status,
   return (
     <React.Fragment>
       <CardContent sx={{paddingBottom: '5%'}}>
+        <PublicBooleanField id={id} publicStat={publicStat}/>
         <Typography gutterBottom sx={{ color: "text.secondary", fontSize: 14 }}>
           {start_date} ~ {end_date} ({duration} days)
         </Typography>
@@ -40,7 +42,7 @@ const CustomCard = ({id, title, purpose, start_date, duration, end_date, status,
 
 export default function OutlinedCard({ item, bgcolor }) {
   return (
-    <Box sx={{ minWidth: 275, height: 'auto' }} >
+    <Box sx={{ minWidth: 275, height: 'auto', position: 'relative'}} >
       <Card variant="outlined" sx={{ bgcolor: bgcolor, boxShadow: '1px 2px 4px 1px rgba(0, 0, 0, 0.2)' }}>
         <CustomCard 
           id={item.id}
@@ -51,6 +53,7 @@ export default function OutlinedCard({ item, bgcolor }) {
           end_date={new Date(item.end_date).toLocaleDateString()}
           status={item.status}
           completed={item.completed}
+          publicStat={item.public}
         />
       </Card>
     </Box>
