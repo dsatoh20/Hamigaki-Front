@@ -64,7 +64,7 @@ export default function NotificationApp() {
                             alignItems: 'center',
                             justifyContent: 'left',
                             marginBottom: 1,
-                            color: 'white'
+                            color: '#FFFFF0'
                         }}>
                             <AccountCircleIcon />
                             <Typography sx={{ marginLeft: 1, fontSize: 12}}>
@@ -91,7 +91,7 @@ export default function NotificationApp() {
                         alignItems: 'center',
                         justifyContent: 'left',
                         marginBottom: 1,
-                        color: 'white'
+                        color: '#FFFFF0'
                     }}>
                         <AccountCircleIcon />
                         <Typography sx={{ marginLeft: 1, fontSize: 12}}>

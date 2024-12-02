@@ -4,6 +4,7 @@ import FeedBackIcon from '@mui/icons-material/Feedback';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useUser } from '../AuthWrapper';
 import '../App.css';
+import SearchUserInput from './usercomponents/SearchUserComponent';
 
 
 const CustomCard = ({id, title, purpose, start_date, duration, end_date, status, completed}) => {
@@ -137,6 +138,7 @@ export default function TimelineApp() {
       <Container maxWidth="sm">
         <br></br>
         <Stack spacing={2}>
+          <SearchUserInput />
           {sharedCalenders.map((item, index) => (
             <TimelineCard item={item} key={index} bgcolor="primary.light" />
           ))}
