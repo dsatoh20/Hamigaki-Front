@@ -16,7 +16,7 @@ export default function SearchUserInput() {
             <TextField
                 {...params}
                 label="Search user"
-                placeholder="type username"
+                placeholder="Type username"
                 slotProps={{
                 input: {
                     ...params.InputProps,
