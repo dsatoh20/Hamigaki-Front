@@ -13,14 +13,14 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 
 
 function App() {
-  const [calendars, setCalenders] = useState([])
+  const [calendars, setCalendars] = useState([])
   const user = useUser();
   const [userId, setUserId] = useState();
 
   useEffect(() => {
     fetch(`${apiBaseUrl}/api/calenders/`)
       .then(response => response.json())
-      .then(data => setCalenders(data));
+      .then(data => setCalendars(data));
     if (user.user !== null) {
       setUserId(user.user?.id);
     } else {
@@ -28,10 +28,10 @@ function App() {
     };
   }, [user]);
 
-  const inProgressCalenders = calendars.filter(item => new Date(item.end_date) >= new Date() && item.completed === false && item.owner === userId);
-  console.log("次のユーザーのカレンダーを表示中", user.user?.username, userId, inProgressCalenders)
+  const inProgressCalendars = calendars.filter(item => new Date(item.end_date) >= new Date() && item.completed === false && item.owner === userId);
+  console.log("次のユーザーのカレンダーを表示中", user.user?.username, userId, inProgressCalendars)
 
-  const demoCalenders = calendars.filter(item => item.owner === 3); // ハードコーディング
+  const demoCalendars = calendars.filter(item => item.owner === 3); // ハードコーディング
   
 
   return (
@@ -39,7 +39,7 @@ function App() {
       <Container maxWidth="sm">
         <br></br>
         <Stack spacing={2}>
-          {inProgressCalenders.map((item, index) => (
+          {inProgressCalendars.map((item, index) => (
             <OutlinedCard item={item} key={index} bgcolor="primary.light" />
           ))}
         </Stack>
@@ -49,7 +49,7 @@ function App() {
           <Typography variant='body1' className='calendar-group-title'><u>_Demos_</u></Typography>
           <br></br>
           <Stack spacing={2}>
-            {demoCalenders.map((item, index) => (
+            {demoCalendars.map((item, index) => (
               <OutlinedCard item={item} key={index} bgcolor="primary.light" />
             ))}
           </Stack>

@@ -13,24 +13,24 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
   : 'http://127.0.0.1:8000';
 
 function GetCompleted(checked) {
-  const [calendars, setCalenders] = useState([]);
+  const [calendars, setCalendars] = useState([]);
   const user = useUser();
   
 
   useEffect(() => {
     fetch(`${apiBaseUrl}/api/calenders/`)
       .then(response => response.json())
-      .then(data => setCalenders(data));
+      .then(data => setCalendars(data));
   }, []);
-  const expiredCalenders = calendars.filter(item => new Date(item.end_date) < new Date() && item.completed === false && item.owner === user.user?.id);
-  const completedCalenders = calendars.filter(item => item.completed === true && item.owner === user.user?.id);
+  const expiredCalendars = calendars.filter(item => new Date(item.end_date) < new Date() && item.completed === false && item.owner === user.user?.id);
+  const completedCalendars = calendars.filter(item => item.completed === true && item.owner === user.user?.id);
   return (
     <Grid2 container rowSpacing={2} columnSpacing={2}>
       {checked === false
-      ? expiredCalenders.map((item, index) =>(
+      ? expiredCalendars.map((item, index) =>(
         <SquareCorners item={item} bgcolor="secondary.light" key={index}/>
       ))
-      : completedCalenders.map((item, index) =>(
+      : completedCalendars.map((item, index) =>(
         <SquareCorners item={item} bgcolor="primary.light" key={index}/>
       ))}
     </Grid2>

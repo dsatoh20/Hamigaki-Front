@@ -27,7 +27,7 @@ Don't have an account?横のトグルスイッチを押すと、Sign upフォー
 2. Set a calendar  
 画面下の+ボタンから、あなたの継続したいことを登録します。
 ![Home](/public/demo/Home.png)
-![SetACalender](/public/demo/Set.png)
+![SetACalendar](/public/demo/Set.png)
 3. Check off today's item  
 タスクを実行したら、今日のカレンダーをタップしましょう。カレンダーに色が付きます。<br />カレンダーの上にあるバーであなたの継続が一目瞭然！
 ![CheckOffTodaysItem](/public/demo/Before.png)

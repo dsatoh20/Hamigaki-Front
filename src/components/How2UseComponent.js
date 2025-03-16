@@ -37,7 +37,7 @@ export default function BasicModal() {
             0. What is Hamigaki Calendar?
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            勉強、筋トレ、ストレッチ、花の水やり...毎日コツコツがんばりたい。そんなあなたの継続をHamigaki Calenderが可視化します。
+            勉強、筋トレ、ストレッチ、花の水やり...毎日コツコツがんばりたい。そんなあなたの継続をHamigaki Calendarが可視化します。
           </Typography>
           <Typography variant='h6'>1. Create an account</Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>

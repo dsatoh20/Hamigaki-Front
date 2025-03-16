@@ -50,14 +50,14 @@ export default function SimpleBottomNavigation() {
     setAnchorEl(null);
   };
 
-  function SetNewCalender() {
+  function SetNewCalendar() {
     const token = localStorage.getItem('authToken');
     const calcStart_date = (dayToAdd) => { // 0 or 1を入力
         const today = new Date();
         today.setDate(today.getDate() + dayToAdd);
         return today.toISOString();
     }
-    const newCalenderData = {
+    const newCalendarData = {
         owner: Number(userId),
         title: title,
         purpose: purpose,
@@ -73,7 +73,7 @@ export default function SimpleBottomNavigation() {
             'Authorization': `Token ${token}`,
         },
         credentials: 'include',
-        body: JSON.stringify(newCalenderData)
+        body: JSON.stringify(newCalendarData)
     })
     .then(response => {
         response.json();
@@ -180,7 +180,7 @@ export default function SimpleBottomNavigation() {
                             marginTop: '1vh',
                             color: 'primary.dark'
                         }}
-                        onClick={SetNewCalender}
+                        onClick={SetNewCalendar}
                     >Set
                     </Button></MenuItem>
                 </Box>
@@ -234,7 +234,7 @@ export default function SimpleBottomNavigation() {
             }}
             sx={{ bgcolor: 'primary.dark' }}    
         >
-            <BottomNavigationAction label="My Calenders" icon={<DateRangeIcon />} />
+            <BottomNavigationAction label="My Calendars" icon={<DateRangeIcon />} />
             <BottomNavigationAction label="Timeline" icon={<ViewTimelineIcon />} />
             <BottomNavigationAction label="Notification" icon={<NotificationsIcon />} />
         </BottomNavigation>

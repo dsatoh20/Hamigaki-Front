@@ -116,14 +116,14 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
   : 'http://127.0.0.1:8000';
 
 export default function TimelineApp() {
-  const [calendars, setCalenders] = useState([])
+  const [calendars, setCalendars] = useState([])
   const user = useUser();
   const [userId, setUserId] = useState();
 
   useEffect(() => {
     fetch(`${apiBaseUrl}/api/calenders/`)
       .then(response => response.json())
-      .then(data => setCalenders(data));
+      .then(data => setCalendars(data));
     if (user.user !== null) {
       setUserId(user.user?.id);
     } else {
@@ -131,7 +131,7 @@ export default function TimelineApp() {
     };
   }, [user]);
 
-  const sharedCalenders = calendars.filter(item => item.completed === false && item.owner === userId && new Date(item.end_date) > new Date() && item.public === true); // 一旦自分のカレンダーだけ表示 --> 将来的には、相互フォローのユーザーのデータだけ表示
+  const sharedCalendars = calendars.filter(item => item.completed === false && item.owner === userId && new Date(item.end_date) > new Date() && item.public === true); // 一旦自分のカレンダーだけ表示 --> 将来的には、相互フォローのユーザーのデータだけ表示
   return (
     <div className="App BottomMenu">
       <Box height={'56px'} />
@@ -139,7 +139,7 @@ export default function TimelineApp() {
         <br></br>
         <Stack spacing={2}>
           <SearchUserInput />
-          {sharedCalenders.map((item, index) => (
+          {sharedCalendars.map((item, index) => (
             <TimelineCard item={item} key={index} bgcolor="primary.light" />
           ))}
         </Stack>

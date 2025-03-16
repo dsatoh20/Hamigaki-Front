@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "short_name": "HamigakiCalender",
+  "short_name": "HamigakiCalendar",
   "name": "Create Hamigaki Calendar App",
   "icons": [
     {
