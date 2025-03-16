@@ -46,7 +46,7 @@ function App() {
       </Container>
       {!user.user && (
         <Container maxWidth="sm">
-          <Typography variant='body1' className='calender-group-title'><u>_Demos_</u></Typography>
+          <Typography variant='body1' className='calendar-group-title'><u>_Demos_</u></Typography>
           <br></br>
           <Stack spacing={2}>
             {demoCalenders.map((item, index) => (
@@ -56,7 +56,7 @@ function App() {
         </Container>
       )}
       <Container maxWidth="sm">
-        <Typography variant='body1' className='calender-group-title'><u>_History_</u></Typography>
+        <Typography variant='body1' className='calendar-group-title'><u>_History_</u></Typography>
         <SimpleGrow />
       </Container>
       

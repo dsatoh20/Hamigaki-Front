@@ -84,7 +84,7 @@ export default function SimpleBottomNavigation() {
             setDayToAdd(0);
             setDuration(7);
             handleClose(); // addをoffに
-            alert('Successflly set a new calender!');
+            alert('Successflly set a new calendar!');
             window.location.assign(window.location.href);
         } else {
             alert('Failed to set...')
@@ -156,7 +156,7 @@ export default function SimpleBottomNavigation() {
                         width: '60vw'
                         }}
                 >
-                    <Typography variant='h6' color='primary.dark'>New Calender</Typography>
+                    <Typography variant='h6' color='primary.dark'>New Calendar</Typography>
                     <MenuItem><TextField 
                         id='standard-basic' 
                         label='タイトル' 

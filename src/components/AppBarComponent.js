@@ -81,7 +81,7 @@ export default function MenuAppBar() {
             <Box height='32px'><img src={`${process.env.PUBLIC_URL}/logo192.png`} alt='logo' height='100%' /></Box>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Hamigaki🦷Calender
+            Hamigaki🦷Calendar
           </Typography>
           {isLoggedin && (
             <div>

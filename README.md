@@ -1,4 +1,4 @@
-# Hamigaki Calender
+# Hamigaki Calendar
 ## 目次
 1. [概要](#概要)
 2. [開発環境](#開発環境)
@@ -24,7 +24,7 @@
 1. Create an account  
 Don't have an account?横のトグルスイッチを押すと、Sign upフォームが表示されます。
 ![SignUp](/public/demo/Signup.png)
-2. Set a calender  
+2. Set a calendar  
 画面下の+ボタンから、あなたの継続したいことを登録します。
 ![Home](/public/demo/Home.png)
 ![SetACalender](/public/demo/Set.png)

@@ -98,7 +98,7 @@ export default function NotificationApp() {
                             HC staff
                         </Typography>
                         <Typography sx={{ marginLeft: 2 }}>
-                            Welcome to Hamigaki Calender!
+                            Welcome to Hamigaki Calendar!
                         </Typography>
                     </Box>
                 </TimelineContent>

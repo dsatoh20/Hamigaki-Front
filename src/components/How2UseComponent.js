@@ -25,7 +25,7 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>What is Hamigaki Calender?</Button>
+      <Button onClick={handleOpen}>What is Hamigaki Calendar?</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -34,7 +34,7 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            0. What is Hamigaki Calender?
+            0. What is Hamigaki Calendar?
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             勉強、筋トレ、ストレッチ、花の水やり...毎日コツコツがんばりたい。そんなあなたの継続をHamigaki Calenderが可視化します。
@@ -44,7 +44,7 @@ export default function BasicModal() {
             Don't have an account?横のトグルスイッチを押すと、Sign upフォームが表示されます。
           </Typography>
           <img src={`${process.env.PUBLIC_URL}/demo/Top.png`} alt="top page" width="100%" text-align="center"/>
-          <Typography variant='h6'>2. Set a calender</Typography>
+          <Typography variant='h6'>2. Set a calendar</Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             画面下の+ボタンから、あなたの継続したいことを登録します。
           </Typography>
