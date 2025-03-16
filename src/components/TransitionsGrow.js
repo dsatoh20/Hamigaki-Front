@@ -13,7 +13,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
   : 'http://127.0.0.1:8000';
 
 function GetCompleted(checked) {
-  const [calenders, setCalenders] = useState([]);
+  const [calendars, setCalenders] = useState([]);
   const user = useUser();
   
 
@@ -22,8 +22,8 @@ function GetCompleted(checked) {
       .then(response => response.json())
       .then(data => setCalenders(data));
   }, []);
-  const expiredCalenders = calenders.filter(item => new Date(item.end_date) < new Date() && item.completed === false && item.owner === user.user?.id);
-  const completedCalenders = calenders.filter(item => item.completed === true && item.owner === user.user?.id);
+  const expiredCalenders = calendars.filter(item => new Date(item.end_date) < new Date() && item.completed === false && item.owner === user.user?.id);
+  const completedCalenders = calendars.filter(item => item.completed === true && item.owner === user.user?.id);
   return (
     <Grid2 container rowSpacing={2} columnSpacing={2}>
       {checked === false

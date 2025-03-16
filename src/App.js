@@ -13,7 +13,7 @@ const apiBaseUrl = process.env.NODE_ENV === 'production'
 
 
 function App() {
-  const [calenders, setCalenders] = useState([])
+  const [calendars, setCalenders] = useState([])
   const user = useUser();
   const [userId, setUserId] = useState();
 
@@ -28,10 +28,10 @@ function App() {
     };
   }, [user]);
 
-  const inProgressCalenders = calenders.filter(item => new Date(item.end_date) >= new Date() && item.completed === false && item.owner === userId);
+  const inProgressCalenders = calendars.filter(item => new Date(item.end_date) >= new Date() && item.completed === false && item.owner === userId);
   console.log("次のユーザーのカレンダーを表示中", user.user?.username, userId, inProgressCalenders)
 
-  const demoCalenders = calenders.filter(item => item.owner === 3); // ハードコーディング
+  const demoCalenders = calendars.filter(item => item.owner === 3); // ハードコーディング
   
 
   return (
