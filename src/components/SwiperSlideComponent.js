@@ -71,7 +71,7 @@ export default function ProgressSlide({id, status, setStatus, start_date}) {
                         display: 'inline-flex',
                         bgcolor: '#68534b',
                         border: 2,
-                        borderColor: "#F5C5C5",
+                        borderColor: "#E1565F",
                         borderRadius: 2,
                         width: '100%',
                         height: '100%',
