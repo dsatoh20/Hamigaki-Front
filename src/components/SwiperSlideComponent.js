@@ -82,6 +82,7 @@ export default function ProgressSlide({id, status, setStatus, start_date}) {
                             sx={{
                                 bgcolor: new Date() < calcDate(start_date, index) ? '#BFAE99': new Date() > calcDate(start_date, index) & stat===1 ? '#F4F9FF': '#4A4137',
                                 borderRadius: 0,
+                                border: 1,
                                 borderColor: '#000000',
                                 width: `${unitWidth}%`,
                                 height: '100%',
