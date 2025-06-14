@@ -71,7 +71,7 @@ export default function ProgressSlide({id, status, setStatus, start_date}) {
                         display: 'inline-flex',
                         bgcolor: '#68534b',
                         border: 2,
-                        borderColor: "#fff",
+                        borderColor: "#F5C5C5",
                         borderRadius: 2,
                         width: '100%',
                         height: '100%',
@@ -80,8 +80,9 @@ export default function ProgressSlide({id, status, setStatus, start_date}) {
                           {status.map((stat, index) => (
                             <Box key={index}
                             sx={{
-                                bgcolor: new Date() < calcDate(start_date, index) ? '#EFCFD4': new Date() > calcDate(start_date, index) & stat===1 ? '#FDFDFB': '#D3C5B3',
+                                bgcolor: new Date() < calcDate(start_date, index) ? '#BFAE99': new Date() > calcDate(start_date, index) & stat===1 ? '#F4F9FF': '#4A4137',
                                 borderRadius: 0,
+                                borderColor: '#000000',
                                 width: `${unitWidth}%`,
                                 height: '100%',
                                 position: 'relative',
