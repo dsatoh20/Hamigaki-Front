@@ -80,7 +80,7 @@ export default function ProgressSlide({id, status, setStatus, start_date}) {
                           {status.map((stat, index) => (
                             <Box key={index}
                             sx={{
-                                bgcolor: new Date() < calcDate(start_date, index) ? '#fff': new Date() > calcDate(start_date, index) & stat===1 ? '#00A2E8': '#4A4137',
+                                bgcolor: new Date() < calcDate(start_date, index) ? '#fff': new Date() > calcDate(start_date, index) & stat===1 ? '#00A2E8': '#E1565F',
                                 borderRadius: 0,
                                 width: `${unitWidth}%`,
                                 height: '100%',
